@@ -34,7 +34,7 @@ jobs:
            lunch omni_${DEVICE}-eng
            make recoveryimage
            cp ./out/target/product/olive/recovery.img ./
-           mkdir -r ./uploaded./
+           mkdir -r ./uploaded/
            cp ./recovery.img ./uploaded/
            cd ./uploaded/
            git init
