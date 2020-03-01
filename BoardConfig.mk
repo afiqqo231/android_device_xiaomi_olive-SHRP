@@ -158,4 +158,4 @@ SHRP_REC := /dev/block/bootdevice/by-name/recovery
 # Recovery Type (It can be treble,normal,SAR) [Only for About Section]
 SHRP_REC_TYPE := SAR
 # Recovery Type (It can be A/B or A_only) [Only for About Section]
-SHRP_DEVICE_TYPE := A/B
+SHRP_DEVICE_TYPE := A_only
