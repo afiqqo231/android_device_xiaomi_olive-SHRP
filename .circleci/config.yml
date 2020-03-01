@@ -37,8 +37,11 @@ jobs:
            mkdir ./uploaded/
            cp ./recovery.img ./uploaded/
            cd ./uploaded/
-           export GITHUB_TOKEN=8593ee2715eebe5a7213cf02b0a98cad7b544c6e
-           ghr v1 /uploaded
+           export BUILDFILE_IMG=$(find $(pwd)/out/target/product/${DEVICE}/recovery.img 2>/dev/null)
+           export UPLOAD_PATH=$(pwd)/out/target/product/${DEVICE}/upload/
+           mkdir ${UPLOAD_PATH}
+           cp $BUILDFILE_IMG $UPLOAD_PATH
+           ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -n "Latest Release for $(echo $DEVICE)" -b "PBRP $(echo $VERSION)" -c ${CIRCLE_SHA1} -delete ${VERSION} ${UPLOAD_PATH}
 workflows:
   version: 2.1
   cooking:
