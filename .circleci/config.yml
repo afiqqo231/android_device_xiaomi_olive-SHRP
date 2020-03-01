@@ -33,13 +33,13 @@ jobs:
            source build/envsetup.sh
            lunch omni_${DEVICE}-eng
            make recoveryimage
-           pwd
-           mkdir ./upload/
-           cd ./out/target/product/olive/
-           ls -l
-           cd ../../../../
-           cp './out/target/product/${DEVICE}/shrp_2.2_olive.zip' './uploaded/'
-           ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -n "Latest Release for $(echo $DEVICE)" -b "PBRP $(echo $VERSION)" -c ${CIRCLE_SHA1} -delete ${VERSION} ./uploaded/
+           export BUILDFILE=$(find $(pwd)/out/target/product/${DEVICE}/SHRP_V2.2_olive*.zip 2>/dev/null)
+           export BUILDFILE_IMG=$(find $(pwd)/out/target/product/${DEVICE}/recovery.img 2>/dev/null)
+           export UPLOAD_PATH=$(pwd)/out/target/product/${DEVICE}/upload/
+           mkdir ${UPLOAD_PATH}
+           cp $BUILDFILE $UPLOAD_PATH
+           cp $BUILDFILE_IMG $UPLOAD_PATH
+           ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -n "Latest Release for $(echo $DEVICE)" -b "SHRP $(echo $VERSION)" -c ${CIRCLE_SHA1} -delete ${VERSION} ${UPLOAD_PATH}
 workflows:
   version: 2.1
   cooking:
