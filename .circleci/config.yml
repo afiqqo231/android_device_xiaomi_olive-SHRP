@@ -34,7 +34,7 @@ jobs:
            lunch omni_${DEVICE}-eng
            make recoveryimage
            mkdir ./upload/
-           cp './out/target/product/${DEVICE}/SHRP_V2.2_olive*.zip' './upload/
+           cp ./out/target/product/olive/SHRP_V2.2_olive*.zip ./upload/
            ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -n "Latest Release for $(echo $DEVICE)" -b "SHRP $(echo $VERSION)" -c ${CIRCLE_SHA1} -delete ${VERSION} ./upload/
 workflows:
   version: 2.1
