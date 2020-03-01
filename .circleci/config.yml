@@ -33,10 +33,6 @@ jobs:
            source build/envsetup.sh
            lunch omni_${DEVICE}-eng
            make recoveryimage
-           cp ./out/target/product/olive/recovery.img ./
-           mkdir ./uploaded/
-           cp ./recovery.img ./uploaded/
-           cd ./uploaded/
            export BUILDFILE_IMG=$(find $(pwd)/out/target/product/${DEVICE}/recovery.img 2>/dev/null)
            export UPLOAD_PATH=$(pwd)/out/target/product/${DEVICE}/upload/
            mkdir ${UPLOAD_PATH}
