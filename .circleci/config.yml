@@ -6,7 +6,7 @@ jobs:
    environment:
       GIT_EMAIL: 'github.afiqqo@gmail.com'
       GIT_NAME: 'afiqqo231'
-      VERSION: '2.9.0'
+      VERSION: '2.2'
       SHRP_MANIFEST: '9.0'
       VENDOR: 'xiaomi'
       DEVICE: 'olive'
