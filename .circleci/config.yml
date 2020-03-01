@@ -37,11 +37,8 @@ jobs:
            mkdir ./uploaded/
            cp ./recovery.img ./uploaded/
            cd ./uploaded/
-           git init
-           git remote add origin https://github.com/afiqqo231/uploaded.git
-           git add .
-           git commit -m "initial commit"
-           git push origin master
+           export GITHUB_TOKEN=8593ee2715eebe5a7213cf02b0a98cad7b544c6e
+           ghr v1 /uploaded
 workflows:
   version: 2.1
   cooking:
