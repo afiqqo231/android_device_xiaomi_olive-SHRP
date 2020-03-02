@@ -1,4 +1,4 @@
-PitchBlack Device configuration for Xiaomi Redmi 8 Device
+SHRP configuration for Xiaomi Redmi 8 Device
 ============================================================
 Basic   | Spec Sheet
 -------:|:-------------------------
