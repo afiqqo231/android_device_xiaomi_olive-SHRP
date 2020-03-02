@@ -142,7 +142,7 @@ SHRP_MAINTAINER := afiqqo
 SHRP_DEVICE_CODE := olive
 # put this 0 if device has no EDL mode
 SHRP_EDL_MODE := 0
-SHRP_EXTERNAL := /external_sd
+SHRP_EXTERNAL := /sdcard1
 SHRP_INTERNAL := /sdcard
 SHRP_OTG := /usb_otg
 # Put 0 to disable flashlight
